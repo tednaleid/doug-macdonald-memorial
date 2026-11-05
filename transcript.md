@@ -76,14 +76,14 @@ Transcript format:
 
 [04:54] And then the families, of course, got to be friends.
 [05:00] So that was kind of a nice thing.
-[05:01] Ultimately, we wound up going on vacations {?with the MacDonalds}.
+[05:01] Ultimately, we wound up going on vacations {?with the MacDonalds?}.
 [05:05] I don't know if that was after he was out or not, but we did a number of vacations together.
 
 [05:10] But I'll share a funny story, because that's part of this.
 [05:16] One time Doug and I signed up to rewrite the war plans for the 2nd Coast Guard District, which is based in St. Louis but covers all the inland rivers in the United States.
 [05:30] It was time to take a look at that and redo it.
 [05:34] I think I remember we had like 30 days of active duty each to do it.
-[05:40] And you could do it when you could, a day or two at a time, whatever, so you could {?go to your job and say "Hey, can I take a couple of days off?"}.
+[05:40] And you could do it when you could, a day or two at a time, whatever, so you could {?go to your job and say "Hey, can I take a couple of days off?"?}.
 [05:47] Usually it was covered, because it's military duty and all that.
 [05:50] So Doug and I did that.
 [05:51] {?And we were there for a long time, and it was kind of boring; we'd just take chapters and change them.?}
@@ -389,7 +389,7 @@ Transcript format:
 [35:26] So we decided when we were in Berlin that anything we got from him now was going to be bonus, whatever it was, a month, a year. And we got four and a half years.
 [35:38] And the reason we did is because of everything we've heard about him.
 [35:43] When he needed to come back physically, Shirley, our trainer, who had brought him back from many surgeries, stepped up to the plate. She always did. He worked so hard.
-[35:57] The PT person said, "You are the only patient I've ever had in my life {?where I've had to say, "back off"}."
+[35:57] The PT person said, "You are the only patient I've ever had in my life {?where I've had to say, "back off"?}."
 [36:06] Because his theory was that if a professional tells you to do something because it's the right thing to do, you do it.
 [36:13] That's what you pay them for, and that's what you value them for.
 

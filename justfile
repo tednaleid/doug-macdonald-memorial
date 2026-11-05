@@ -17,13 +17,10 @@ piping := "2497-2622"
 default:
     @just --list
 
-# Build the page from transcript.md into site/index.html
+# Build the page from transcript.md into site/, alongside the Cleaned audio
 build:
     ./scripts/build.py transcript.md page/template.html site/index.html {{whisper}}
-
-# Build and open the page in the browser (add review=1 to see guesses and unsure Lines)
-open review="": build
-    open "site/index.html{{ if review != "" { "?review" } else { "" } }}"
+    cp audio/cleaned.m4a site/audio.m4a
 
 # Make the 16 kHz mono, loudness-normalized WAV used for transcription and diarization
 prepare:
@@ -44,17 +41,17 @@ diarize: prepare
 draft:
     ./scripts/draft.py data/diarization.json work/draft.md {{whisper}}
 
-# Make the Cleaned audio with ClearerVoice, keep the Piping untouched, level it, and encode site/audio.m4a
+# Make the Cleaned audio with ClearerVoice, keep the Piping untouched, level it, and encode audio/cleaned.m4a
 clean-audio:
-    mkdir -p work site
+    mkdir -p work
     ffmpeg -hide_banner -loglevel error -y -i {{recording}} -ac 1 -ar 48000 {{source_wav}}
     ./scripts/enhance-clearvoice.py {{source_wav}} work/clearvoice-48k.wav
     just compose-audio
 
-# Combine the enhanced speech with the untouched Piping, then level and encode site/audio.m4a
+# Combine the enhanced speech with the untouched Piping, then level and encode audio/cleaned.m4a
 compose-audio:
     ./scripts/compose-cleaned.py work/clearvoice-48k.wav {{source_wav}} work/cleaned-48k.wav --keep {{piping}}
-    ffmpeg -hide_banner -loglevel error -y -i work/cleaned-48k.wav -af "{{leveling}}" -ac 1 -ar 48000 -c:a aac -b:a 80k -movflags +faststart site/audio.m4a
+    ffmpeg -hide_banner -loglevel error -y -i work/cleaned-48k.wav -af "{{leveling}}" -ac 1 -ar 48000 -c:a aac -b:a 80k -movflags +faststart audio/cleaned.m4a
 
 # Render one clip through every cleaning method for listening (start in seconds)
 sample name start duration="60":

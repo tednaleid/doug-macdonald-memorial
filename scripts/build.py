@@ -17,7 +17,7 @@ PLACEHOLDER = "/*TRANSCRIPT_DATA*/null"
 
 
 def fail(number: int, message: str) -> None:
-    sys.exit(f"transcript.md:{number}: {message}")
+    sys.exit(f"line {number}: {message}")
 
 
 def parse(markdown: str) -> dict:
@@ -31,6 +31,8 @@ def parse(markdown: str) -> dict:
 
     for number, raw in enumerate(markdown.splitlines(), start=1):
         line = raw.rstrip()
+        if line.count("{?") != line.count("?}"):
+            fail(number, "a {?guess?} marker is not closed with ?}")
         if not line:
             close_block()
         elif line.startswith("# "):
