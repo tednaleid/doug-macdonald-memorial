@@ -67,8 +67,12 @@
   .line.active { background: var(--active); }
   .note { color: var(--dim); font-style: italic; }
   .line a { color: var(--accent); }
-  figure { margin: 1rem 0 1.5rem; }
-  figure img { display: block; width: min(100%, 22rem); height: auto; border-radius: 6px; }
+  section.talk { display: flow-root; }
+  figure { float: right; width: 15rem; margin: 0.4rem 0 1rem 1.5rem; }
+  figure img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 6px; }
+  @media (max-width: 40rem) {
+    figure { float: none; width: min(100%, 22rem); margin: 0 0 1rem; }
+  }
   footer { color: var(--dim); font-size: 0.85rem; border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 3rem; font-family: system-ui, sans-serif; }
 
   .player {

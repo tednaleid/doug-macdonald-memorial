@@ -14,6 +14,8 @@ Transcript format:
 
 ## Sharon
 
+![Sharon speaking](images/sharon.jpg)
+
 [00:17] Good morning, and thank you so much for coming.
 [00:20] I feel the love in this room.
 [00:22] I cannot tell you how amazing it is.
@@ -52,6 +54,8 @@ Transcript format:
 [03:04] All right, Joe. Joe Cosgrove.
 
 ## Joe Cosgrove
+
+![Joe Cosgrove at the lectern](images/joe.jpg)
 
 [03:10] There's not a whole lot to say, but I got to know Doug in the Coast Guard.
 [03:14] Back then the draft was around, and a lot of us decided that we did not want to go in the Army, so we wound up going in the Coast Guard, the Air Force, whatever.
@@ -118,6 +122,8 @@ Transcript format:
 [07:50] Doug was a great guy.
 
 ## Ray Anschel
+
+![Ray Anschel at the lectern](images/ray.jpg)
 
 [08:09] For 27 years, Doug MacDonald and I walked the same hallways at Normandale Community College.
 [08:17] We attended many of the same meetings.
@@ -234,6 +240,8 @@ Transcript format:
 
 ## Alex
 
+![Alex speaking, with Sharon and Amy beside him](images/alex.jpg)
+
 [20:22] So it's interesting to hear some of the theme of the previous comments about Dad being quiet or reserved, and I think that's kind of where I'm focused also.
 [20:33] Some of the most important things he taught me, he wasn't there for.
 [20:37] {?I was [inaudible] until the last minute.?}
@@ -280,6 +288,8 @@ Transcript format:
 [24:01] It was this reserved, quiet, but strong father that I think I couldn't have wished for better.
 
 ## Amy
+
+![Amy speaking](images/amy.jpg)
 
 [24:25] {?I was going to do the "knows all, tells only some."?}
 [24:34] So, gosh, we talk about how we had different dads.
