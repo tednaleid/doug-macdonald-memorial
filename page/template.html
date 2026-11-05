@@ -1,0 +1,344 @@
+<!doctype html>
+<!-- ABOUTME: Page template for the memorial transcript; scripts/build.py embeds the transcript data below. -->
+<!-- ABOUTME: Clicking a Line plays the audio from there; add ?review to the URL to see guesses and low-confidence Lines. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doug MacDonald Memorial</title>
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --text: #2b2926;
+    --dim: #8a847a;
+    --rule: #e4dfd6;
+    --active: #f1e6cf;
+    --hover: #f4efe6;
+    --accent: #7a5b2e;
+    --guess: #fde9a8;
+    --low: #c9803a;
+    --bar: rgba(250, 248, 244, 0.96);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1d1c1a;
+      --text: #e6e1d8;
+      --dim: #8f897f;
+      --rule: #34312d;
+      --active: #3d3527;
+      --hover: #2a2825;
+      --accent: #d4b07a;
+      --guess: #5c4a16;
+      --low: #d9954f;
+      --bar: rgba(29, 28, 26, 0.96);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 20vh; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 19px/1.65 ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  }
+  main { max-width: 42rem; margin: 0 auto; padding: 3rem 16px 9rem; }
+  header { text-align: center; margin-bottom: 2.5rem; }
+  h1 { font-size: 2.2rem; font-weight: 500; line-height: 1.2; margin: 0 0 0.4rem; letter-spacing: 0.01em; }
+  .subtitle { color: var(--dim); font-style: italic; margin: 0; }
+  nav { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 1rem 0; margin-bottom: 2.5rem; }
+  nav h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--dim); font-weight: 600; margin: 0 0 0.5rem; font-family: system-ui, sans-serif; }
+  nav ol { list-style: none; margin: 0; padding: 0; }
+  nav li { display: flex; gap: 0.75rem; }
+  nav a { color: var(--text); text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+  .time { font: 0.75rem/1.65 system-ui, sans-serif; color: var(--dim); font-variant-numeric: tabular-nums; min-width: 2.6rem; }
+  nav .time { line-height: inherit; font-size: 0.85rem; padding-top: 0.15rem; }
+  section.talk { margin-bottom: 2.5rem; }
+  section.talk > h2 { font-size: 1.35rem; font-weight: 600; margin: 0 0 0.8rem; display: flex; align-items: baseline; gap: 0.75rem; }
+  section.talk > h3 { font-size: 1.1rem; font-style: italic; font-weight: 500; margin: 1.5rem 0 0.5rem; }
+  p.para, div.verse { position: relative; margin: 0 0 1rem; }
+  .para > .time, .verse > .time { position: absolute; left: -3.6rem; top: 0.2rem; text-align: right; }
+  div.verse { margin: 1rem 0 1.5rem 1.5rem; font-style: italic; }
+  .stanza { display: block; white-space: pre-line; margin-bottom: 0.9rem; padding: 0.1rem 0.3rem; border-radius: 4px; }
+  .line { cursor: pointer; border-radius: 4px; padding: 0.05rem 0; transition: background-color 150ms; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .line:hover { background: var(--hover); }
+  .line.active { background: var(--active); }
+  .note { color: var(--dim); font-style: italic; }
+  .line a { color: var(--accent); }
+  footer { color: var(--dim); font-size: 0.85rem; border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 3rem; font-family: system-ui, sans-serif; }
+
+  .player {
+    position: fixed; left: 0; right: 0; bottom: 0;
+    background: var(--bar); border-top: 1px solid var(--rule);
+    backdrop-filter: blur(6px);
+    padding: 0.5rem 16px calc(0.5rem + env(safe-area-inset-bottom));
+    font-family: system-ui, sans-serif; font-size: 0.85rem;
+  }
+  .player-inner { max-width: 42rem; margin: 0 auto; }
+  .player-meta { display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: var(--dim); min-height: 1.6rem; }
+  .player audio { width: 100%; display: block; }
+  button.follow {
+    font: inherit; color: var(--accent); background: none; border: 1px solid var(--accent);
+    border-radius: 999px; padding: 0.1rem 0.7rem; cursor: pointer;
+  }
+  [hidden] { display: none !important; }
+
+  /* Review mode */
+  .review-bar { display: none; }
+  body.review .review-bar {
+    display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;
+    position: sticky; top: 0; z-index: 2; background: var(--bar); border-bottom: 1px solid var(--rule);
+    padding: 0.5rem 16px; font: 0.85rem system-ui, sans-serif;
+  }
+  .review-bar button { font: inherit; padding: 0.15rem 0.6rem; cursor: pointer; }
+  body.review mark.guess { background: var(--guess); color: inherit; border-radius: 3px; padding: 0 0.1rem; }
+  body:not(.review) mark.guess { background: none; color: inherit; }
+  body.review .line.low { text-decoration: underline dotted var(--low); text-underline-offset: 0.25em; }
+  body.review .line[data-t]::before { content: attr(data-t) " "; font: 0.7rem system-ui, sans-serif; color: var(--dim); }
+
+  @media (max-width: 52rem) {
+    .para > .time, .verse > .time { position: static; display: block; text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="review-bar">
+  <strong>Review mode</strong>
+  <span id="review-count"></span>
+  <button id="prev-guess" type="button">Previous guess (p)</button>
+  <button id="next-guess" type="button">Next guess (n)</button>
+  <span>Dotted underline: Whisper was unsure.</span>
+</div>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p class="subtitle">A transcript of the memorial service. Select any line to hear it.</p>
+  </header>
+  <nav aria-label="Order of service">
+    <h2>Order of service</h2>
+    <ol id="toc"></ol>
+  </nav>
+  <div id="transcript"></div>
+  <footer>
+    This transcript was made from a phone recording taken in the room, then edited lightly for reading:
+    filler words and false starts are removed, and passages that could not be made out are marked [inaudible].
+  </footer>
+</main>
+<div class="player">
+  <div class="player-inner">
+    <div class="player-meta">
+      <span id="now-speaking"></span>
+      <button class="follow" id="follow" type="button" hidden>Follow along</button>
+    </div>
+    <audio id="audio" controls preload="metadata" src="audio.m4a"></audio>
+  </div>
+</div>
+<script>
+const DATA = /*TRANSCRIPT_DATA*/null;
+const LOW_CONFIDENCE = 0.6;
+const review = new URLSearchParams(location.search).has("review");
+document.body.classList.toggle("review", review);
+
+const audio = document.getElementById("audio");
+const followButton = document.getElementById("follow");
+const nowSpeaking = document.getElementById("now-speaking");
+
+function formatTime(seconds) {
+  const s = Math.max(0, Math.floor(seconds));
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+}
+
+function escapeHtml(text) {
+  return text.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+}
+
+// Turns Transcript markup into HTML: {?guess?}, [text](url) links, and [bracketed notes].
+function renderText(text) {
+  return escapeHtml(text)
+    .replace(/\{\?([\s\S]*?)\?\}/g, '<mark class="guess">$1</mark>')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/\[([^\]]+)\]/g, '<span class="note">[$1]</span>');
+}
+
+// Every timed element on the page, in time order, for finding the active one.
+const timed = [];
+
+function makeLine(line, tag, className) {
+  const el = document.createElement(tag);
+  el.className = className;
+  el.innerHTML = renderText(line.text);
+  el.dataset.start = line.start;
+  el.dataset.t = formatTime(line.start);
+  if (review && line.confidence !== undefined && line.confidence < LOW_CONFIDENCE) el.classList.add("low");
+  if (line.confidence !== undefined) el.title = `${formatTime(line.start)}  confidence ${line.confidence}`;
+  timed.push({ start: line.start, el });
+  return el;
+}
+
+function timeLabel(seconds) {
+  const span = document.createElement("span");
+  span.className = "time";
+  span.textContent = formatTime(seconds);
+  return span;
+}
+
+function render() {
+  document.getElementById("title").textContent = DATA.title;
+  const toc = document.getElementById("toc");
+  const root = document.getElementById("transcript");
+
+  DATA.talks.forEach((talk, i) => {
+    const id = `talk-${i + 1}`;
+    const li = document.createElement("li");
+    li.append(timeLabel(talk.start));
+    const a = document.createElement("a");
+    a.href = `#${id}`;
+    a.textContent = talk.speaker;
+    a.addEventListener("click", (e) => { e.preventDefault(); playFrom(talk.start); });
+    li.append(a);
+    toc.append(li);
+
+    const section = document.createElement("section");
+    section.className = "talk";
+    section.id = id;
+    section.dataset.speaker = talk.speaker;
+    const h2 = document.createElement("h2");
+    h2.textContent = talk.speaker;
+    section.append(h2);
+
+    for (const block of talk.blocks) {
+      if (block.type === "heading") {
+        const h3 = document.createElement("h3");
+        h3.textContent = block.text;
+        section.append(h3);
+      } else if (block.type === "paragraph") {
+        const p = document.createElement("p");
+        p.className = "para";
+        p.append(timeLabel(block.lines[0].start));
+        block.lines.forEach((line, j) => {
+          if (j > 0) p.append(" ");
+          p.append(makeLine(line, "span", "line"));
+        });
+        section.append(p);
+      } else if (block.type === "verse") {
+        const div = document.createElement("div");
+        div.className = "verse";
+        const first = block.lines.find((l) => l);
+        div.append(timeLabel(first.start));
+        for (const line of block.lines) if (line) div.append(makeLine(line, "span", "line stanza"));
+        section.append(div);
+      }
+    }
+    root.append(section);
+  });
+}
+
+function playFrom(seconds) {
+  audio.currentTime = seconds;
+  setFollow(true);
+  audio.play();
+}
+
+// Last timed element starting at or before t (binary search over start times).
+function findActiveIndex(t) {
+  let lo = 0, hi = timed.length - 1, found = -1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    if (timed[mid].start <= t) { found = mid; lo = mid + 1; } else { hi = mid - 1; }
+  }
+  return found;
+}
+
+// Following: the page scrolls to keep the playing Line in view until the reader scrolls on their own.
+let following = true;
+let programmaticScrollUntil = 0;
+
+function setFollow(on) {
+  following = on;
+  followButton.hidden = on || audio.paused;
+}
+
+function keepInView(el) {
+  const rect = el.getBoundingClientRect();
+  const barHeight = document.querySelector(".player").offsetHeight;
+  const bottomLimit = window.innerHeight - barHeight - 40;
+  if (rect.top < window.innerHeight * 0.12 || rect.bottom > bottomLimit) {
+    programmaticScrollUntil = performance.now() + 800;
+    window.scrollTo({ top: window.scrollY + rect.top - window.innerHeight * 0.3, behavior: "smooth" });
+  }
+}
+
+let activeIndex = -1;
+function updateActive() {
+  const index = findActiveIndex(audio.currentTime);
+  if (index !== activeIndex) {
+    if (activeIndex >= 0) timed[activeIndex].el.classList.remove("active");
+    activeIndex = index;
+    if (index >= 0) {
+      const el = timed[index].el;
+      el.classList.add("active");
+      nowSpeaking.textContent = el.closest("section").dataset.speaker;
+      if (following && !audio.paused) keepInView(el);
+    }
+  }
+}
+
+function tick() {
+  updateActive();
+  if (!audio.paused) requestAnimationFrame(tick);
+}
+
+function userScrolled() {
+  if (performance.now() > programmaticScrollUntil && following && !audio.paused) setFollow(false);
+}
+
+// Review mode: step through guesses.
+let guessIndex = -1;
+function stepGuess(direction) {
+  const guesses = [...document.querySelectorAll("mark.guess")];
+  if (!guesses.length) return;
+  guessIndex = (guessIndex + direction + guesses.length) % guesses.length;
+  const line = guesses[guessIndex].closest(".line");
+  line.scrollIntoView({ block: "center", behavior: "smooth" });
+  playFrom(Number(line.dataset.start));
+  setFollow(false);
+}
+
+function wireEvents() {
+  document.getElementById("transcript").addEventListener("click", (e) => {
+    const line = e.target.closest(".line");
+    if (!line || e.target.closest("a")) return;
+    if (String(window.getSelection())) return; // selecting text should not jump the audio
+    playFrom(Number(line.dataset.start));
+  });
+  audio.addEventListener("play", () => { followButton.hidden = following; requestAnimationFrame(tick); });
+  audio.addEventListener("pause", () => { followButton.hidden = true; });
+  audio.addEventListener("seeked", updateActive);
+  followButton.addEventListener("click", () => {
+    setFollow(true);
+    if (activeIndex >= 0) keepInView(timed[activeIndex].el);
+  });
+  window.addEventListener("wheel", userScrolled, { passive: true });
+  window.addEventListener("touchmove", userScrolled, { passive: true });
+  window.addEventListener("keydown", (e) => {
+    if (e.target.closest("input, textarea, button, audio")) return;
+    if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End"].includes(e.key)) userScrolled();
+    if (e.key === " ") { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); }
+    if (review && e.key === "n") stepGuess(1);
+    if (review && e.key === "p") stepGuess(-1);
+  });
+  document.getElementById("next-guess").addEventListener("click", () => stepGuess(1));
+  document.getElementById("prev-guess").addEventListener("click", () => stepGuess(-1));
+}
+
+render();
+wireEvents();
+if (review) {
+  const guesses = document.querySelectorAll("mark.guess").length;
+  const low = document.querySelectorAll(".line.low").length;
+  document.getElementById("review-count").textContent = `${guesses} guesses, ${low} unsure Lines`;
+}
+</script>
+</body>
+</html>

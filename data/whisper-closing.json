@@ -1,0 +1,800 @@
+{
+ "model": "mlx-community/whisper-large-v3-mlx",
+ "segments": [
+  {
+   "start": 2623.52,
+   "end": 2649.98,
+   "text": "One last direction please. If you would like flowers, Debbie would you raise your hand my friend? Debbie has paper for you to wrap them in, a vase of stay. But if you would like the flowers please take a portion of it, take all of it. We do not need 13. But as of again, thank you so much for coming today. You have been a great",
+   "avg_logprob": -0.32,
+   "no_speech_prob": 0.019,
+   "words": [
+    {
+     "word": " One",
+     "start": 2623.52,
+     "end": 2624.04,
+     "probability": 0.106
+    },
+    {
+     "word": " last",
+     "start": 2624.04,
+     "end": 2624.56,
+     "probability": 0.995
+    },
+    {
+     "word": " direction",
+     "start": 2624.56,
+     "end": 2625.04,
+     "probability": 0.979
+    },
+    {
+     "word": " please.",
+     "start": 2625.04,
+     "end": 2625.64,
+     "probability": 0.4
+    },
+    {
+     "word": " If",
+     "start": 2626.0,
+     "end": 2626.52,
+     "probability": 0.938
+    },
+    {
+     "word": " you",
+     "start": 2626.52,
+     "end": 2626.78,
+     "probability": 0.998
+    },
+    {
+     "word": " would",
+     "start": 2626.78,
+     "end": 2626.96,
+     "probability": 0.992
+    },
+    {
+     "word": " like",
+     "start": 2626.96,
+     "end": 2627.28,
+     "probability": 0.998
+    },
+    {
+     "word": " flowers,",
+     "start": 2627.28,
+     "end": 2627.56,
+     "probability": 0.5
+    },
+    {
+     "word": " Debbie",
+     "start": 2628.22,
+     "end": 2629.66,
+     "probability": 0.931
+    },
+    {
+     "word": " would",
+     "start": 2629.66,
+     "end": 2629.94,
+     "probability": 0.462
+    },
+    {
+     "word": " you",
+     "start": 2629.94,
+     "end": 2630.08,
+     "probability": 0.993
+    },
+    {
+     "word": " raise",
+     "start": 2630.08,
+     "end": 2630.34,
+     "probability": 0.975
+    },
+    {
+     "word": " your",
+     "start": 2630.34,
+     "end": 2630.48,
+     "probability": 0.981
+    },
+    {
+     "word": " hand",
+     "start": 2630.48,
+     "end": 2630.68,
+     "probability": 0.997
+    },
+    {
+     "word": " my",
+     "start": 2630.68,
+     "end": 2630.88,
+     "probability": 0.521
+    },
+    {
+     "word": " friend?",
+     "start": 2630.88,
+     "end": 2631.12,
+     "probability": 0.998
+    },
+    {
+     "word": " Debbie",
+     "start": 2631.7,
+     "end": 2632.22,
+     "probability": 0.981
+    },
+    {
+     "word": " has",
+     "start": 2632.22,
+     "end": 2632.52,
+     "probability": 0.95
+    },
+    {
+     "word": " paper",
+     "start": 2632.52,
+     "end": 2633.04,
+     "probability": 0.982
+    },
+    {
+     "word": " for",
+     "start": 2633.04,
+     "end": 2633.44,
+     "probability": 0.968
+    },
+    {
+     "word": " you",
+     "start": 2633.44,
+     "end": 2633.5,
+     "probability": 0.997
+    },
+    {
+     "word": " to",
+     "start": 2633.5,
+     "end": 2633.74,
+     "probability": 0.99
+    },
+    {
+     "word": " wrap",
+     "start": 2633.74,
+     "end": 2634.02,
+     "probability": 0.987
+    },
+    {
+     "word": " them",
+     "start": 2634.02,
+     "end": 2634.26,
+     "probability": 0.438
+    },
+    {
+     "word": " in,",
+     "start": 2634.26,
+     "end": 2634.46,
+     "probability": 0.961
+    },
+    {
+     "word": " a",
+     "start": 2634.46,
+     "end": 2634.58,
+     "probability": 0.679
+    },
+    {
+     "word": " vase",
+     "start": 2634.58,
+     "end": 2634.82,
+     "probability": 0.652
+    },
+    {
+     "word": " of",
+     "start": 2634.82,
+     "end": 2634.96,
+     "probability": 0.719
+    },
+    {
+     "word": " stay.",
+     "start": 2634.96,
+     "end": 2635.28,
+     "probability": 0.333
+    },
+    {
+     "word": " But",
+     "start": 2635.56,
+     "end": 2635.94,
+     "probability": 0.786
+    },
+    {
+     "word": " if",
+     "start": 2635.94,
+     "end": 2636.04,
+     "probability": 0.982
+    },
+    {
+     "word": " you",
+     "start": 2636.04,
+     "end": 2636.16,
+     "probability": 0.997
+    },
+    {
+     "word": " would",
+     "start": 2636.16,
+     "end": 2636.3,
+     "probability": 0.989
+    },
+    {
+     "word": " like",
+     "start": 2636.3,
+     "end": 2636.54,
+     "probability": 0.996
+    },
+    {
+     "word": " the",
+     "start": 2636.54,
+     "end": 2636.68,
+     "probability": 0.911
+    },
+    {
+     "word": " flowers",
+     "start": 2636.68,
+     "end": 2636.98,
+     "probability": 0.998
+    },
+    {
+     "word": " please",
+     "start": 2636.98,
+     "end": 2637.3,
+     "probability": 0.503
+    },
+    {
+     "word": " take",
+     "start": 2637.3,
+     "end": 2637.82,
+     "probability": 0.98
+    },
+    {
+     "word": " a",
+     "start": 2637.82,
+     "end": 2638.32,
+     "probability": 0.962
+    },
+    {
+     "word": " portion",
+     "start": 2638.32,
+     "end": 2638.98,
+     "probability": 0.987
+    },
+    {
+     "word": " of",
+     "start": 2638.98,
+     "end": 2639.26,
+     "probability": 0.989
+    },
+    {
+     "word": " it,",
+     "start": 2639.26,
+     "end": 2639.38,
+     "probability": 0.922
+    },
+    {
+     "word": " take",
+     "start": 2639.5,
+     "end": 2639.52,
+     "probability": 0.982
+    },
+    {
+     "word": " all",
+     "start": 2639.52,
+     "end": 2639.9,
+     "probability": 0.995
+    },
+    {
+     "word": " of",
+     "start": 2639.9,
+     "end": 2640.04,
+     "probability": 0.999
+    },
+    {
+     "word": " it.",
+     "start": 2640.04,
+     "end": 2640.24,
+     "probability": 0.989
+    },
+    {
+     "word": " We",
+     "start": 2640.38,
+     "end": 2640.88,
+     "probability": 0.98
+    },
+    {
+     "word": " do",
+     "start": 2640.88,
+     "end": 2641.06,
+     "probability": 0.989
+    },
+    {
+     "word": " not",
+     "start": 2641.06,
+     "end": 2641.3,
+     "probability": 0.999
+    },
+    {
+     "word": " need",
+     "start": 2641.3,
+     "end": 2641.52,
+     "probability": 0.826
+    },
+    {
+     "word": " 13.",
+     "start": 2641.52,
+     "end": 2642.0,
+     "probability": 0.712
+    },
+    {
+     "word": " But",
+     "start": 2643.52,
+     "end": 2644.04,
+     "probability": 0.797
+    },
+    {
+     "word": " as",
+     "start": 2644.04,
+     "end": 2646.18,
+     "probability": 0.673
+    },
+    {
+     "word": " of",
+     "start": 2646.18,
+     "end": 2646.34,
+     "probability": 0.245
+    },
+    {
+     "word": " again,",
+     "start": 2646.34,
+     "end": 2646.62,
+     "probability": 0.852
+    },
+    {
+     "word": " thank",
+     "start": 2646.66,
+     "end": 2646.88,
+     "probability": 0.993
+    },
+    {
+     "word": " you",
+     "start": 2646.88,
+     "end": 2647.1,
+     "probability": 0.999
+    },
+    {
+     "word": " so",
+     "start": 2647.1,
+     "end": 2647.42,
+     "probability": 0.997
+    },
+    {
+     "word": " much",
+     "start": 2647.42,
+     "end": 2647.82,
+     "probability": 0.999
+    },
+    {
+     "word": " for",
+     "start": 2647.82,
+     "end": 2648.02,
+     "probability": 0.996
+    },
+    {
+     "word": " coming",
+     "start": 2648.02,
+     "end": 2648.36,
+     "probability": 0.999
+    },
+    {
+     "word": " today.",
+     "start": 2648.36,
+     "end": 2648.66,
+     "probability": 0.61
+    },
+    {
+     "word": " You",
+     "start": 2648.98,
+     "end": 2649.5,
+     "probability": 0.872
+    },
+    {
+     "word": " have",
+     "start": 2649.5,
+     "end": 2649.86,
+     "probability": 0.92
+    },
+    {
+     "word": " been",
+     "start": 2649.86,
+     "end": 2649.98,
+     "probability": 0.473
+    },
+    {
+     "word": " a",
+     "start": 2649.98,
+     "end": 2649.98,
+     "probability": 0.174
+    },
+    {
+     "word": " great",
+     "start": 2649.98,
+     "end": 2649.98,
+     "probability": 0.422
+    }
+   ]
+  },
+  {
+   "start": 2654.04,
+   "end": 2669.4,
+   "text": "day. So thank you all and have a wonderful day. Our brief is yours for the rest of the day. If you want to grab lunch, if you want to take a hike, if you want to just take the three mile drive, do whatever you like, it's yours for the day. Thank you so much.",
+   "avg_logprob": -0.219,
+   "no_speech_prob": 0.04,
+   "words": [
+    {
+     "word": " day.",
+     "start": 2654.04,
+     "end": 2654.44,
+     "probability": 0.0
+    },
+    {
+     "word": " So",
+     "start": 2654.44,
+     "end": 2654.54,
+     "probability": 0.844
+    },
+    {
+     "word": " thank",
+     "start": 2654.54,
+     "end": 2654.9,
+     "probability": 0.64
+    },
+    {
+     "word": " you",
+     "start": 2654.9,
+     "end": 2655.22,
+     "probability": 0.997
+    },
+    {
+     "word": " all",
+     "start": 2655.22,
+     "end": 2655.44,
+     "probability": 0.975
+    },
+    {
+     "word": " and",
+     "start": 2655.44,
+     "end": 2655.86,
+     "probability": 0.468
+    },
+    {
+     "word": " have",
+     "start": 2655.86,
+     "end": 2656.08,
+     "probability": 0.973
+    },
+    {
+     "word": " a",
+     "start": 2656.08,
+     "end": 2656.24,
+     "probability": 0.996
+    },
+    {
+     "word": " wonderful",
+     "start": 2656.24,
+     "end": 2656.54,
+     "probability": 0.995
+    },
+    {
+     "word": " day.",
+     "start": 2656.54,
+     "end": 2656.84,
+     "probability": 0.967
+    },
+    {
+     "word": " Our",
+     "start": 2657.92,
+     "end": 2658.32,
+     "probability": 0.487
+    },
+    {
+     "word": " brief",
+     "start": 2658.32,
+     "end": 2658.6,
+     "probability": 0.244
+    },
+    {
+     "word": " is",
+     "start": 2658.6,
+     "end": 2658.8,
+     "probability": 0.983
+    },
+    {
+     "word": " yours",
+     "start": 2658.8,
+     "end": 2659.1,
+     "probability": 0.936
+    },
+    {
+     "word": " for",
+     "start": 2659.1,
+     "end": 2659.3,
+     "probability": 0.938
+    },
+    {
+     "word": " the",
+     "start": 2659.3,
+     "end": 2659.44,
+     "probability": 0.998
+    },
+    {
+     "word": " rest",
+     "start": 2659.44,
+     "end": 2659.62,
+     "probability": 0.997
+    },
+    {
+     "word": " of",
+     "start": 2659.62,
+     "end": 2659.76,
+     "probability": 0.998
+    },
+    {
+     "word": " the",
+     "start": 2659.76,
+     "end": 2659.86,
+     "probability": 0.993
+    },
+    {
+     "word": " day.",
+     "start": 2659.86,
+     "end": 2660.1,
+     "probability": 0.998
+    },
+    {
+     "word": " If",
+     "start": 2660.14,
+     "end": 2660.24,
+     "probability": 0.291
+    },
+    {
+     "word": " you",
+     "start": 2660.24,
+     "end": 2660.36,
+     "probability": 0.938
+    },
+    {
+     "word": " want",
+     "start": 2660.36,
+     "end": 2660.42,
+     "probability": 0.929
+    },
+    {
+     "word": " to",
+     "start": 2660.42,
+     "end": 2660.68,
+     "probability": 0.984
+    },
+    {
+     "word": " grab",
+     "start": 2660.68,
+     "end": 2661.24,
+     "probability": 0.915
+    },
+    {
+     "word": " lunch,",
+     "start": 2661.24,
+     "end": 2662.08,
+     "probability": 0.992
+    },
+    {
+     "word": " if",
+     "start": 2662.18,
+     "end": 2662.38,
+     "probability": 0.861
+    },
+    {
+     "word": " you",
+     "start": 2662.38,
+     "end": 2662.42,
+     "probability": 0.998
+    },
+    {
+     "word": " want",
+     "start": 2662.42,
+     "end": 2662.6,
+     "probability": 0.992
+    },
+    {
+     "word": " to",
+     "start": 2662.6,
+     "end": 2662.68,
+     "probability": 0.996
+    },
+    {
+     "word": " take",
+     "start": 2662.68,
+     "end": 2662.86,
+     "probability": 0.967
+    },
+    {
+     "word": " a",
+     "start": 2662.86,
+     "end": 2662.98,
+     "probability": 0.987
+    },
+    {
+     "word": " hike,",
+     "start": 2662.98,
+     "end": 2663.22,
+     "probability": 0.992
+    },
+    {
+     "word": " if",
+     "start": 2663.34,
+     "end": 2663.42,
+     "probability": 0.985
+    },
+    {
+     "word": " you",
+     "start": 2663.42,
+     "end": 2663.52,
+     "probability": 0.999
+    },
+    {
+     "word": " want",
+     "start": 2663.52,
+     "end": 2663.66,
+     "probability": 0.966
+    },
+    {
+     "word": " to",
+     "start": 2663.66,
+     "end": 2663.78,
+     "probability": 0.997
+    },
+    {
+     "word": " just",
+     "start": 2663.78,
+     "end": 2663.98,
+     "probability": 0.966
+    },
+    {
+     "word": " take",
+     "start": 2663.98,
+     "end": 2664.28,
+     "probability": 0.961
+    },
+    {
+     "word": " the",
+     "start": 2664.28,
+     "end": 2664.94,
+     "probability": 0.99
+    },
+    {
+     "word": " three",
+     "start": 2664.94,
+     "end": 2665.1,
+     "probability": 0.893
+    },
+    {
+     "word": " mile",
+     "start": 2665.1,
+     "end": 2665.3,
+     "probability": 0.422
+    },
+    {
+     "word": " drive,",
+     "start": 2665.3,
+     "end": 2665.84,
+     "probability": 0.948
+    },
+    {
+     "word": " do",
+     "start": 2666.0,
+     "end": 2666.22,
+     "probability": 0.878
+    },
+    {
+     "word": " whatever",
+     "start": 2666.22,
+     "end": 2666.52,
+     "probability": 0.992
+    },
+    {
+     "word": " you",
+     "start": 2666.52,
+     "end": 2666.84,
+     "probability": 0.998
+    },
+    {
+     "word": " like,",
+     "start": 2666.84,
+     "end": 2667.04,
+     "probability": 0.891
+    },
+    {
+     "word": " it's",
+     "start": 2667.06,
+     "end": 2667.3,
+     "probability": 0.985
+    },
+    {
+     "word": " yours",
+     "start": 2667.3,
+     "end": 2667.38,
+     "probability": 0.988
+    },
+    {
+     "word": " for",
+     "start": 2667.38,
+     "end": 2667.62,
+     "probability": 0.986
+    },
+    {
+     "word": " the",
+     "start": 2667.62,
+     "end": 2667.68,
+     "probability": 0.827
+    },
+    {
+     "word": " day.",
+     "start": 2667.68,
+     "end": 2667.88,
+     "probability": 0.997
+    },
+    {
+     "word": " Thank",
+     "start": 2668.16,
+     "end": 2668.56,
+     "probability": 0.998
+    },
+    {
+     "word": " you",
+     "start": 2668.56,
+     "end": 2668.78,
+     "probability": 1.0
+    },
+    {
+     "word": " so",
+     "start": 2668.78,
+     "end": 2668.96,
+     "probability": 0.998
+    },
+    {
+     "word": " much.",
+     "start": 2668.96,
+     "end": 2669.4,
+     "probability": 1.0
+    }
+   ]
+  },
+  {
+   "start": 2669.4,
+   "end": 2681.4,
+   "text": "Thank you so much.",
+   "avg_logprob": -0.77,
+   "no_speech_prob": 0.246,
+   "words": [
+    {
+     "word": " Thank",
+     "start": 2669.4,
+     "end": 2670.32,
+     "probability": 0.353
+    },
+    {
+     "word": " you",
+     "start": 2670.32,
+     "end": 2671.66,
+     "probability": 0.996
+    },
+    {
+     "word": " so",
+     "start": 2671.66,
+     "end": 2671.68,
+     "probability": 0.26
+    },
+    {
+     "word": " much.",
+     "start": 2671.68,
+     "end": 2681.4,
+     "probability": 0.997
+    }
+   ]
+  }
+ ]
+}
