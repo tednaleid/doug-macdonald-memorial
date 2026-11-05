@@ -67,6 +67,8 @@
   .line.active { background: var(--active); }
   .note { color: var(--dim); font-style: italic; }
   .line a { color: var(--accent); }
+  figure { margin: 1rem 0 1.5rem; }
+  figure img { display: block; width: min(100%, 22rem); height: auto; border-radius: 6px; }
   footer { color: var(--dim); font-size: 0.85rem; border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 3rem; font-family: system-ui, sans-serif; }
 
   .player {
@@ -222,6 +224,14 @@ function render() {
           p.append(makeLine(line, "span", "line"));
         });
         section.append(p);
+      } else if (block.type === "image") {
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        img.src = block.src;
+        img.alt = block.alt;
+        img.loading = "lazy";
+        figure.append(img);
+        section.append(figure);
       } else if (block.type === "verse") {
         const div = document.createElement("div");
         div.className = "verse";

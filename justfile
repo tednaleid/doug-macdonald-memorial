@@ -21,6 +21,7 @@ default:
 build:
     ./scripts/build.py transcript.md page/template.html site/index.html {{whisper}}
     cp audio/cleaned.m4a site/audio.m4a
+    rm -rf site/images && cp -R images site/images
 
 # Make the 16 kHz mono, loudness-normalized WAV used for transcription and diarization
 prepare:

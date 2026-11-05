@@ -13,6 +13,7 @@ import sys
 from pathlib import Path
 
 TIMED = re.compile(r"^\[(\d+):(\d{2})\]\s+(.*)$")
+IMAGE = re.compile(r"^!\[([^\]]*)\]\(([^)\s]+)\)$")
 PLACEHOLDER = "/*TRANSCRIPT_DATA*/null"
 
 
@@ -43,6 +44,9 @@ def parse(markdown: str) -> dict:
         elif line.startswith("### "):
             close_block()
             talks[-1]["blocks"].append({"type": "heading", "text": line[4:].strip()})
+        elif m := IMAGE.match(line):
+            close_block()
+            talks[-1]["blocks"].append({"type": "image", "alt": m[1], "src": m[2]})
         elif line.startswith(">"):
             text = line[1:].strip()
             if block is None or block["type"] != "verse":

@@ -7,6 +7,7 @@ Transcript format:
 - {?text?} marks a guess to confirm by listening. Delete the braces and question marks once it is right.
 - [inaudible] marks words that could not be recovered. [laughter] and similar mark audience reactions.
 - [text](https://example.com) makes a link.
+- ![description](images/photo.jpg) on its own line shows a photo from the images folder.
 -->
 
 # Doug MacDonald Memorial
@@ -461,6 +462,8 @@ Transcript format:
 ## Mike Breidenbach, bagpiper
 
 [41:38] [Mike Breidenbach](http://bagpipeassociates.com/id3.html) plays the bagpipes.
+
+![Mike Breidenbach playing the bagpipes](images/bagpiper.jpg)
 
 ## Sharon
 
