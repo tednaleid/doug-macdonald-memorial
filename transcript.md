@@ -252,7 +252,7 @@ Transcript format:
 
 [20:22] So it's interesting to hear some of the theme of the previous comments about Dad being quiet or reserved, and I think that's kind of where I'm focused also.
 [20:33] Some of the most important things he taught me, he wasn't there for.
-[20:37] {?I was [inaudible] until the last minute.?}
+[20:37] {?I was not going to cry until the last paragraph.?}
 
 [20:44] So, my first car, you've seen it, it's a yellow 1951 Ford pickup.
 [20:49] Dad and I had no business owning that car.
