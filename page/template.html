@@ -67,6 +67,28 @@
   .line.active { background: var(--active); }
   .note { color: var(--dim); font-style: italic; }
   .line a { color: var(--accent); }
+  .gallery { position: relative; margin: 0 0 2.5rem; }
+  .strip {
+    display: flex; gap: 0.6rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    scrollbar-width: none; border-radius: 6px; overscroll-behavior-x: contain;
+  }
+  .strip::-webkit-scrollbar { display: none; }
+  .strip img { flex: none; height: 18rem; width: auto; border-radius: 6px; scroll-snap-align: start; }
+  .gallery-step {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 2.4rem; height: 2.4rem; border-radius: 50%; border: none; cursor: pointer;
+    background: var(--bar); color: var(--text); font-size: 1.6rem; line-height: 1;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  }
+  .gallery-step.prev { left: 0.5rem; }
+  .gallery-step.next { right: 0.5rem; }
+  .gallery-step:disabled { opacity: 0; pointer-events: none; }
+  @media (max-width: 40rem) {
+    .strip img { height: 13rem; }
+  }
+  @media (hover: none) {
+    .gallery-step { display: none; }
+  }
   section.talk { display: flow-root; }
   figure { float: right; width: 15rem; margin: 0.4rem 0 1rem 1.5rem; }
   figure img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 6px; }
@@ -122,6 +144,11 @@
     <h1 id="title"></h1>
     <p class="subtitle">A transcript of the memorial service. Select any line to hear it.</p>
   </header>
+  <div class="gallery" id="gallery" hidden>
+    <div class="strip" id="strip"></div>
+    <button class="gallery-step prev" type="button" aria-label="Previous photos">&lsaquo;</button>
+    <button class="gallery-step next" type="button" aria-label="More photos">&rsaquo;</button>
+  </div>
   <nav aria-label="Order of service">
     <h2>Order of service</h2>
     <ol id="toc"></ol>
@@ -190,8 +217,34 @@ function timeLabel(seconds) {
   return span;
 }
 
+function renderGallery() {
+  if (!DATA.gallery.length) return;
+  const gallery = document.getElementById("gallery");
+  const strip = document.getElementById("strip");
+  for (const photo of DATA.gallery) {
+    const img = document.createElement("img");
+    img.src = photo.src;
+    img.alt = photo.alt;
+    img.title = photo.alt;
+    strip.append(img);
+  }
+  const prev = gallery.querySelector(".prev");
+  const next = gallery.querySelector(".next");
+  const updateButtons = () => {
+    prev.disabled = strip.scrollLeft <= 1;
+    next.disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 1;
+  };
+  prev.addEventListener("click", () => strip.scrollBy({ left: -strip.clientWidth * 0.8, behavior: "smooth" }));
+  next.addEventListener("click", () => strip.scrollBy({ left: strip.clientWidth * 0.8, behavior: "smooth" }));
+  strip.addEventListener("scroll", updateButtons, { passive: true });
+  strip.querySelectorAll("img").forEach((img) => img.addEventListener("load", updateButtons));
+  gallery.hidden = false;
+  updateButtons();
+}
+
 function render() {
   document.getElementById("title").textContent = DATA.title;
+  renderGallery();
   const toc = document.getElementById("toc");
   const root = document.getElementById("transcript");
 

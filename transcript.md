@@ -7,10 +7,17 @@ Transcript format:
 - {?text?} marks a guess to confirm by listening. Delete the braces and question marks once it is right.
 - [inaudible] marks words that could not be recovered. [laughter] and similar mark audience reactions.
 - [text](https://example.com) makes a link.
-- ![description](images/photo.jpg) on its own line shows a photo from the images folder.
+- ![description](images/photo.jpg) on its own line shows a photo from the images folder. Photos before the first ## Talk become the strip at the top of the page.
 -->
 
 # Doug MacDonald Memorial
+
+![The Coast Guard table: certificates, caps, and insignia](images/display-coast-guard.jpg)
+![The folded flag and presidential memorial certificate](images/display-flag.jpg)
+![The family photo board](images/display-family-board.jpg)
+![Family photos beside the globe stand Doug built](images/display-globe-stand.jpg)
+![Normandale 1973 to 2000, a 1997 black belt, and volunteering](images/display-normandale.jpg)
+![Doug's Coast Guard dress uniform and academic gown](images/display-uniforms.jpg)
 
 ## Sharon
 

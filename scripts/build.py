@@ -23,7 +23,7 @@ def fail(number: int, message: str) -> None:
 
 def parse(markdown: str) -> dict:
     markdown = re.sub(r"<!--.*?-->", lambda m: "\n" * m.group(0).count("\n"), markdown, flags=re.S)
-    title, talks = "", []
+    title, talks, gallery = "", [], []
     block = None  # the paragraph or verse block currently being filled
 
     def close_block() -> None:
@@ -46,7 +46,9 @@ def parse(markdown: str) -> dict:
             talks[-1]["blocks"].append({"type": "heading", "text": line[4:].strip()})
         elif m := IMAGE.match(line):
             close_block()
-            talks[-1]["blocks"].append({"type": "image", "alt": m[1], "src": m[2]})
+            image = {"type": "image", "alt": m[1], "src": m[2]}
+            # Photos before the first Talk form the gallery at the top of the page.
+            (talks[-1]["blocks"] if talks else gallery).append(image)
         elif line.startswith(">"):
             text = line[1:].strip()
             if block is None or block["type"] != "verse":
@@ -69,7 +71,7 @@ def parse(markdown: str) -> dict:
             block["lines"].append({"start": int(m[1]) * 60 + int(m[2]), "text": m[3]})
         else:
             fail(number, f"expected a [mm:ss] Line, a heading, or verse: {line!r}")
-    return {"title": title, "talks": talks}
+    return {"title": title, "gallery": gallery, "talks": talks}
 
 
 def all_lines(data: dict) -> list[dict]:
