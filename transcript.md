@@ -12,6 +12,7 @@ Transcript format:
 
 # Doug MacDonald Memorial
 
+![Doug and Amy on the couch, his arm around her](images/doug-and-amy.jpg)
 ![The Coast Guard table: certificates, caps, and insignia](images/display-coast-guard.jpg)
 ![The folded flag and presidential memorial certificate](images/display-flag.jpg)
 ![The family photo board](images/display-family-board.jpg)
